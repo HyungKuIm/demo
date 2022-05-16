@@ -4,7 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+
 
 @Entity
 @Data
@@ -15,6 +15,7 @@ public class Employee implements Serializable {
     }
 
     @Id
+    @GeneratedValue
     private Integer no;
 
     @Column(length = 20, nullable = false)
@@ -27,7 +28,7 @@ public class Employee implements Serializable {
     @Enumerated(EnumType.STRING)
     private Sex sex;
 
-    private Date birthday;
+    private java.sql.Date birthday;
 
     @Column(unique = true)
     private String mailAddress;
