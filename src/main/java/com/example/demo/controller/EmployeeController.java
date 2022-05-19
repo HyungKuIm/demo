@@ -15,7 +15,7 @@ public class EmployeeController {
 
     @RequestMapping("list")
     public String list(Model model) {
-        model.addAttribute("employees", employService.getEmployeeLIst());
+        model.addAttribute("employees", employService.getEmployeeList());
 
         return "employee/list";
     }

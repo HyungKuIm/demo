@@ -1,13 +1,17 @@
 package com.example.demo.repository.entity;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 
 @Entity
-@Data
+//@Data
+@Getter
+@Setter
 public class Employee implements Serializable {
 
     public enum Sex {
