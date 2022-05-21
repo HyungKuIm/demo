@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Employees</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+<h1>여자배구 선수목록</h1>
 <table>
     <thead>
     <tr>
@@ -27,5 +29,14 @@
     </tr>
     </tbody>
 </table>
+
+<div>
+    <ul class="pagination">
+        <li th:each = "i : ${#numbers.sequence(1, totalPages)}" th:classappend="${i == pageNumber} ? active : ''">
+            <a th:href="|/employee/list?pageNumber=${i}|" th:text="${i}">1</a>
+        </li>
+    </ul>
+</div>
+
 </body>
 </html>

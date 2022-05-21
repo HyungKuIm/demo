@@ -3,6 +3,8 @@ package com.example.demo.service;
 import com.example.demo.repository.EmployeeRepository;
 import com.example.demo.repository.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,8 +24,13 @@ public class EmployeeServiceImpl implements EmployService{
     private EmployeeRepository employeeRepository;
 
     @Override
-    public List<Employee> getEmployeeList() {
+    public Page<Employee> getEmployeeList(Pageable pageable) {
         //return entityManager.createQuery("SELECT e FROM Employee e", Employee.class).getResultList();
-        return employeeRepository.findAll();
+        return employeeRepository.findAll(pageable);
+    }
+
+    @Override
+    public long getEmployeeCnt() {
+        return employeeRepository.count();
     }
 }

@@ -12,3 +12,8 @@ insert into employee
 (no, birthday, first_name, last_name, mail_address, sex)
 values
     (nextval(emp_no_seq), null, '은진', '박', null, 'female');
+
+insert into employee
+(no, birthday, first_name, last_name, mail_address, sex)
+values
+    (nextval(emp_no_seq), null, '정아', '박', null, 'female');
