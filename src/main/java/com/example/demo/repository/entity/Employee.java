@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 
 @Entity
@@ -41,5 +42,13 @@ public class Employee implements Serializable {
 
     @OneToOne(mappedBy = "employee")
     private Authentication authentication;
+
+    @ManyToMany
+    @JoinTable(
+            name = "employeeAuthorization",
+            joinColumns = @JoinColumn(name = "employeeNo"),
+            inverseJoinColumns = @JoinColumn(name = "authorizationRole")
+    )
+    private Set<Authorization> authorizationSet;
 
 }
