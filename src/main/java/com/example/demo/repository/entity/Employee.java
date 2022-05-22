@@ -39,4 +39,7 @@ public class Employee implements Serializable {
     @Column(unique = true)
     private String mailAddress;
 
+    @OneToOne(mappedBy = "employee")
+    private Authentication authentication;
+
 }
